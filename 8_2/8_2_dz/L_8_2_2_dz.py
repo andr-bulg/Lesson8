@@ -71,6 +71,7 @@ class Matrix:
                     print("Матрица не является нулевой")
                     flag = 1
                     break
+
             if flag == 1:
                 break
         else:
@@ -109,7 +110,7 @@ m = Matrix()
 m.print_matrix()
 m.null_matrix()
 
-# Вызов метода на классе с передачей самого объекта в качестве аргумента
+# Вызов методов на классе с передачей самого объекта в качестве аргумента
 Matrix.unit_matrix(m)
 Matrix.diagonal_matrix(m)
 
