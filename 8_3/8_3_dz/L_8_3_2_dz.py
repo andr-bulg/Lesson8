@@ -10,22 +10,27 @@
 
 class Matrix:
 
-    count_matrix = 0
-    count_unit_matrix = 0
-    count_null_matrix = 0
-    count_diagonal_matrix = 0
+# Статические свойства класса Matrix
+    count_matrix = 0            # Общее количество созданных матриц
+    count_unit_matrix = 0       # Количество единичных матриц
+    count_null_matrix = 0       # Количество нулевых матриц
+    count_diagonal_matrix = 0   # Количество диагональных матриц
     
     def __init__(self, n_matr, matrix):
         """
-        Создание матрицы через конструктор __init__()
+        Создание нового объекта матрица через конструктор __init__()
         :param n_matr: размерность матрицы
-        :param matrix: матрица
+        :param matrix: элементы матрица
         """
         self.n = n_matr
         self.matr = matrix
         Matrix.count_matrix += 1
 
     def static_properties(self):
+        """
+        Форматированный вывод на экран статических свойств класса
+        :return:
+        """
         print(f"Общее количество созданных матриц: {Matrix.count_matrix}")
         print(f"Общее количество единичных матриц: {Matrix.count_unit_matrix}")
         print(f"Общее количество нулевых матриц: {Matrix.count_null_matrix}")
@@ -155,7 +160,6 @@ matrix3 = [[0, 0],
 m3 = Matrix(n_matr, matrix3)
 m3.null_matrix()
 m3.static_properties()
-
 
 # Диагональнная матрица
 matrix4 = [[1, 0],
