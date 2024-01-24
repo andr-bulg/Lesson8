@@ -63,6 +63,7 @@ class Straight:
         """
 
         return f"(x-{x1})/{x2 - x1} = (y - {y1})/{y2 - y1}"
+
     def print_straight_line(self):
         """
         Вывод на печать уравнения прямой,
