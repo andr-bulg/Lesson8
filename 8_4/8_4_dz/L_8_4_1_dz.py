@@ -1,11 +1,10 @@
 """
-Измените класс “Прямая” следующим образом:
-* свойства класса - координаты двух точек (x1, y1) и (x2, y2) - должны быть
-  динамическими и задаваться внутри нового метода, задающего прямую;
-* добавьте 3 статических свойства - количество прямых, параллельных осям координат,
-  и прямых, проходящих через точку начала координат
-  (проверки должны осуществляться в соответствующих методах).
+Изменить класс “Прямая” следующим образом:
+- все статические свойства классов должны изменяться только внутри классовых методов;
+- выделить один или несколько вспомогательных методов (если это не было сделано ранее)
+  и оформить их в виде статических методов.
 """
+
 
 class Straight:
     # Статические свойства класса Straight
@@ -13,6 +12,24 @@ class Straight:
     count_parallel_straight = 0             # Количество прямых, параллельных осям координат
     count_straight_origin_of_coordinates = 0  # Количество прямых,
                                              # проходящих через точку начала координат
+
+    # Определение классового метода для изменения общего количества прямых
+    @classmethod
+    def func_count_straight(cls):
+        cls.count_straight += 1
+
+    # Определение классового метода для изменения общего количества прямых,
+    # параллельных осям координат
+    @classmethod
+    def func_count_parallel_straight(cls):
+        cls.count_parallel_straight += 1
+
+    # Определение классового метода для изменения общего количества прямых,
+    # проходящих через точку начала координат
+    @classmethod
+    def func_count_straight_origin_of_coordinates(cls):
+        cls.count_straight_origin_of_coordinates += 1
+
 
     def create_straight(self, x1, y1, x2, y2):
         """
@@ -28,15 +45,33 @@ class Straight:
         self.x2 = x2
         self.y2 = y2
 
-        Straight.count_straight += 1
+        # Было обращение через класс Straight.count_straight += 1
+        # Теперь используется классовый метод
+        Straight.func_count_straight()
 
-    def straight_line(self):
+
+    # Создание статического метода как вспомогательного
+    @staticmethod
+    def straight_line(x1, y1, x2, y2):
         """
-        Вывод уравнения прямой
+        Формирование уравнения прямой
+        :param x1: координата x1 первой точки
+        :param y1: координата y1 первой точки
+        :param x2: координата x2 второй точки
+        :param y2: координата y2 второй точки
+        :return: уравнение прямой в виде f-строки
+        """
+
+        return f"(x-{x1})/{x2 - x1} = (y - {y1})/{y2 - y1}"
+    def print_straight_line(self):
+        """
+        Вывод на печать уравнения прямой,
+        полученного из статического метода straight_line()
         :return:
         """
         print("Уравнение прямой имеет следующий вид:")
-        print(f"(x-{self.x1})/{self.x2 - self.x1} = (y - {self.y1})/{self.y2 - self.y1}")
+        print(Straight.straight_line(self.x1, self.y1, self.x2, self.y2))
+
 
     def intersection(self):
         """
@@ -62,12 +97,16 @@ class Straight:
         if self.y1 == self.y2 and self.y1 != 0 and self.y2 != 0:
             Straight.count_parallel_straight += 1
         elif self.x1 == self.x2 and self.x1 != 0 and self.x2 != 0:
-            Straight.count_parallel_straight += 1
+            # Было обращение через класс Straight.count_parallel_straight += 1
+            # Теперь используется классовый метод
+            Straight.func_count_parallel_straight()
 
         if (self.x1 == 0 and self.y1 == 0) or (self.x2 == 0 and self.y2 == 0):
             Straight.count_straight_origin_of_coordinates += 1
         elif self.x1 == -self.x2 and self.y1 == -self.y2:
-            Straight.count_straight_origin_of_coordinates += 1
+            # Было обращение через класс Straight.count_straight_origin_of_coordinates += 1
+            # Теперь используется классовый метод
+            Straight.func_count_straight_origin_of_coordinates()
 
 # Создание объекта s класса Straight
 s = Straight()
@@ -79,7 +118,7 @@ s.create_straight(1, 1, -1, -1)
 print('Общее количество прямых:', Straight.count_straight)
 
 # Вывод уравнения прямой
-s.straight_line()
+s.print_straight_line()
 
 # Определение точек пересечения с осями координат
 s.intersection()
