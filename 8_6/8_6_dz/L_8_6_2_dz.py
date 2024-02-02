@@ -45,8 +45,8 @@ class Matrix:
         :param n_matr: размерность матрицы
         :param matrix: элементы матрица
         """
-        # self._n = n_matr        # protected
-        # self.__matr = matrix    # private
+        # self._n = n_matr          protected
+        # self.__matr = matrix      private
 
         # Установка свойств объекта через setter
         self.set_n(n_matr)        # protected
@@ -61,17 +61,8 @@ class Matrix:
     def __del__(self):
         print(f"Объект {self.get_matr()} был удалён!")
 
-    def static_properties(self):
-        """
-        Форматированный вывод на экран статических свойств класса
-        :return:
-        """
-        print(f"Общее количество созданных матриц: {Matrix.count_matrix}")
-        print(f"Общее количество единичных матриц: {Matrix.count_unit_matrix}")
-        print(f"Общее количество нулевых матриц: {Matrix.count_null_matrix}")
-        print(f"Общее количество диагональных матриц: {Matrix.count_diagonal_matrix}")
 
-    # Метод getter для свойств n, matr, которые возвращают их значения
+    # Методы getter для свойств n, matr, которые возвращают их значения
     def get_n(self):
         return self._n
 
@@ -84,6 +75,17 @@ class Matrix:
 
     def set_matr(self, matr):
         self.__matr = matr
+
+
+    def static_properties(self):
+        """
+        Форматированный вывод на экран статических свойств класса
+        :return:
+        """
+        print(f"Общее количество созданных матриц: {Matrix.count_matrix}")
+        print(f"Общее количество единичных матриц: {Matrix.count_unit_matrix}")
+        print(f"Общее количество нулевых матриц: {Matrix.count_null_matrix}")
+        print(f"Общее количество диагональных матриц: {Matrix.count_diagonal_matrix}")
 
 
     def print_matrix(self):
