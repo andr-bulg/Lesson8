@@ -23,7 +23,7 @@ class Quadrilateral:
         self.__C = (x3, y3)     # private свойство
         self.__D = (x4, y4)     # private свойство
 
-# Геттеры для получкения точек с координатами
+# Геттеры для получения точек с координатами четырёхугольника
     def get_point_A(self):
         return self.__A
 
@@ -60,7 +60,7 @@ class Quadrilateral:
 
     def quadrilateral_exists(self):
         """
-        Функция проверки существования четырёхугольника
+        Метод проверки существования четырёхугольника
         :return: True или False
         """
         if (self.ABCD()[0] < self.ABCD()[1] + self.ABCD()[2] + self.ABCD()[3]) \
@@ -106,7 +106,7 @@ class Quadrilateral:
 class Parallelogram(Quadrilateral):
     def parallelogram_exists(self):
         """
-        Функция проверки существования параллелограмма
+        Метод проверки существования параллелограмма
         :return: True или False
         """
         if self.ABCD()[0] == self.ABCD()[2] and self.ABCD()[1] == self.ABCD()[3]:
