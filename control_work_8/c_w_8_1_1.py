@@ -73,12 +73,18 @@ class Account():
     # Создание статического метода для перевода суммы в рублях в доллары
     @staticmethod
     def convert_to_usd(summa):
+        """
+        :param summa: Сумма в рублях, которая будет переведена в доллары
+        """
         res = summa // Account.usd_rate
         print(f"{summa} RUB - это {res} USD.")
 
     # Создание статического метода для перевода суммы в рублях в евро
     @staticmethod
     def convert_to_euro(summa):
+        """
+        :param summa: Сумма в рублях, которая будет переведена в евро
+        """
         res = summa // Account.euro_rate
         print(f"{summa} RUB - это {res} EUR.")
 
