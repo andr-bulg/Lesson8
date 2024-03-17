@@ -47,12 +47,12 @@ class Point:
         self.x = x
         self.y = y
 
-    # Применение классовых методов внутри инициализатора
-        if self.x == 0 and self.y == 0:
+    # Применение классовых и статических методов внутри инициализатора
+        if self.check_point_0(self.x, self.y):
             Point.add_count_point_0()
-        elif self.x == 0:
+        elif self.check_point_y(self.x, self.y):
             Point.add_count_point_y()
-        elif self.y == 0:
+        elif self.check_point_x(self.x, self.y):
             Point.add_count_point_x()
 
         print(f"Объект класса Point имеет координаты X={self.x}, Y={self.y}.")
