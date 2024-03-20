@@ -211,7 +211,7 @@ print()
 
 p1.moving_point_to_x(10)
 p1.moving_point_to_y(12)
-print("Xp={}, Yp={}".format(p1.x, p1.y))
+print("X={}, Y={}".format(p1.x, p1.y))
 
 print(f"Расстояние точки ({p1.x}, {p1.y}) до начала координат составляет", p1.distance_to_0())
 
