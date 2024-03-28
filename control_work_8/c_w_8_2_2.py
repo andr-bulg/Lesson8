@@ -48,6 +48,7 @@ class Point:
     def __del__(self):
         print(f"Объект класса Point с координатами X={self.get_x()}, Y={self.get_y()} удалён!")
 
+
     # Методы getter для свойств x и y, которые возвращают значения этих свойств
     def get_x(self):
         return self._x
