@@ -24,7 +24,7 @@
 
 from math import sqrt
 
-class Point:
+class Point():
 
     # Статические свойства
     count_point_X = 0  # количество точек, лежащих на оси X
