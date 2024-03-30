@@ -10,7 +10,9 @@
 """
 
 from math import sqrt
+
 class Pair():
+
     def __init__(self, A, B):
         """
         Инициализатор класса "Pair"
@@ -19,6 +21,7 @@ class Pair():
         """
         self.A = A
         self.B = B
+
 
     def change_number(self, new_A, new_B):
         """
